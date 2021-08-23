@@ -1,9 +1,14 @@
 import "./App.css";
-
+import { ThemeProvider } from "styled-components";
+import NavBar from "./components/NavBar";
+import { useGlobalContext } from "./context";
 function App() {
+  const { theme, themes, setTheme } = useGlobalContext();
   return (
     <div className="app">
-      <h3>this is the app i would build</h3>
+      <ThemeProvider theme={themes[theme]}>
+        <NavBar theme={theme} setTheme={setTheme} />
+      </ThemeProvider>
     </div>
   );
 }
