@@ -6,6 +6,7 @@ const AppDataLayer = ({ children }) => {
     appBackground: "hsl(0, 0%, 98%)",
     navBackground: "hsl(0, 0%, 100%)",
     inputBackground: "hsl(0, 0%, 100%)",
+    inputText: "hsl(0, 0%, 52%)",
     cardBackground: "hsl(0, 0%, 100%)",
     textColor: "hsl(200, 15%, 8%)",
   };
@@ -14,6 +15,7 @@ const AppDataLayer = ({ children }) => {
     appBackground: "hsl(207, 26%, 17%)",
     navBackground: "hsl(209, 23%, 22%)",
     inputBackground: "hsl(209, 23%, 22%)",
+    inputText: "hsl(0, 0%, 100%)",
     cardBackground: "hsl(209, 23%, 22%)",
     textColor: "hsl(0, 0%, 100%)",
   };

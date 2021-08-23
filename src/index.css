@@ -2,12 +2,13 @@
 
 * {
   margin: 0;
+  box-sizing: border-box;
 }
 body {
   margin: 0;
   font-family:  'Nunito Sans', sans-serif;
   font-weight: 300;
-
+  width: 100vw;
 }
 
 h1,h2,h3 {

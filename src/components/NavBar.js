@@ -12,11 +12,13 @@ function NavBar() {
     );
   return (
     <NavContainer>
-      <NavText>Where in the world?</NavText>
-      <NavToggle onClick={changeTheme}>
-        {icon}
-        <NavToggleText>{text}</NavToggleText>
-      </NavToggle>
+      <NavInner>
+        <NavText>Where in the world?</NavText>
+        <NavToggle onClick={changeTheme}>
+          {icon}
+          <NavToggleText>{text}</NavToggleText>
+        </NavToggle>
+      </NavInner>
     </NavContainer>
   );
 }
@@ -24,19 +26,22 @@ function NavBar() {
 export default NavBar;
 
 const NavContainer = styled.div`
-  position: fixed;
-  height: 100px;
+  /* position: fixed; */
+  height: 100%;
   width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  box-shadow: 0 2px 10px -2px hsl(0, 0%, 52%);
+  box-shadow: 0 2px 10px 0px hsl(0, 0%, 52%);
   background-color: ${(props) => props.theme.navBackground};
   @media only screen and (min-width: 750px) {
     width: 100vw;
     padding: 0 20px;
   }
+`;
+
+const NavInner = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 30px;
 `;
 
 const NavText = styled.div`
@@ -48,10 +53,11 @@ const NavText = styled.div`
 const NavToggleText = styled.div`
   margin-left: 10px;
   font-size: 14px;
-  font-weight: 800;
+  font-weight: 600;
   color: ${(props) => props.theme.textColor};
 `;
 
 const NavToggle = styled.div`
   display: flex;
+  align-items: center;
 `;
