@@ -1,6 +1,7 @@
 import { Search } from "@material-ui/icons";
 import React from "react";
 import styled from "styled-components";
+import FlagCard from "./FlagCard";
 function CountryList() {
   return (
     <CountryContainer>
@@ -20,6 +21,16 @@ function CountryList() {
           <option value="Oceana">Oceana</option>
         </select>
       </FormContainer>
+      <CardContainer>
+        <FlagCard />
+        <FlagCard />
+        <FlagCard />
+        <FlagCard />
+        <FlagCard />
+        <FlagCard />
+        <FlagCard />
+        <FlagCard />
+      </CardContainer>
     </CountryContainer>
   );
 }
@@ -33,6 +44,7 @@ const CountryContainer = styled.div`
   width: 100vw;
   color: black;
   background-color: ${(props) => props.theme.appBackground};
+  transition: background-color 500ms ease;
 `;
 
 const FormContainer = styled.div`
@@ -49,6 +61,8 @@ const FormContainer = styled.div`
     border-radius: 8px;
     box-shadow: 2px 2px 10px -2px transparent;
     background-color: ${(props) => props.theme.inputBackground};
+    transition: background-color 500ms ease;
+    transition: color 500ms ease;
     color: ${(props) => props.theme.inputText};
     border: none;
     > option {
@@ -79,21 +93,41 @@ const InputContainer = styled.div`
   box-shadow: 2px 2px 10px -2px transparent;
   border-radius: 8px;
   background-color: ${(props) => props.theme.inputBackground};
+  transition: background-color 500ms ease;
   > .MuiSvgIcon-root {
     color: ${(props) => props.theme.inputText};
+    transition: color 500ms ease;
   }
   > input {
     color: ${(props) => props.theme.textColor};
+    transition: color 500ms ease;
     border: none;
     height: 60px;
     outline: none;
     background-color: transparent;
     ::placeholder {
       color: ${(props) => props.theme.inputText};
+      transition: color 500ms ease;
     }
   }
   @media only screen and (min-width: 760px) {
     width: 472px;
     margin: 0;
+  }
+`;
+
+const CardContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  grid-gap: 20px;
+  padding-bottom: 30px;
+  @media only screen and (min-width: 760px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+  @media only screen and (min-width: 1230px) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
   }
 `;
