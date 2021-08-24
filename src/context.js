@@ -1,7 +1,14 @@
-import React, { useState, useContext } from "react";
-
+import React, { useState, useContext, useEffect } from "react";
+import axios from "axios";
 const AppProvider = React.createContext();
+
+const url = "https://restcountries.eu/rest/v2/all";
+
 const AppDataLayer = ({ children }) => {
+  const [theme, setTheme] = useState("light");
+  const [text, setText] = useState("dark mode");
+  const [countries, setCountries] = useState([]);
+
   const lightMode = {
     appBackground: "hsl(0, 0%, 98%)",
     navBackground: "hsl(0, 0%, 100%)",
@@ -24,8 +31,17 @@ const AppDataLayer = ({ children }) => {
     light: lightMode,
     dark: darkMode,
   };
-  const [theme, setTheme] = useState("light");
-  const [text, setText] = useState("dark mode");
+
+  const fetchData = async () => {
+    const response = await axios.get(url);
+    setCountries(response.data);
+    console.log(response.data);
+    return response;
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
   const changeTheme = () => {
     if (theme === "light" && text === "dark mode") {
       setText("light mode");
@@ -42,6 +58,8 @@ const AppDataLayer = ({ children }) => {
         theme,
         themes,
         text,
+        countries,
+        setCountries,
         setTheme,
         changeTheme,
       }}

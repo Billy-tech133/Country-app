@@ -2,6 +2,7 @@ import { Search } from "@material-ui/icons";
 import React from "react";
 import styled from "styled-components";
 import FlagCard from "./FlagCard";
+
 function CountryList() {
   return (
     <CountryContainer>
@@ -23,13 +24,6 @@ function CountryList() {
       </FormContainer>
       <CardContainer>
         <FlagCard />
-        <FlagCard />
-        <FlagCard />
-        <FlagCard />
-        <FlagCard />
-        <FlagCard />
-        <FlagCard />
-        <FlagCard />
       </CardContainer>
     </CountryContainer>
   );
@@ -39,7 +33,6 @@ export default CountryList;
 
 const CountryContainer = styled.div`
   height: 100%;
-  z-index: -1;
   max-width: 100%;
   width: 100vw;
   color: black;
@@ -119,15 +112,15 @@ const InputContainer = styled.div`
 const CardContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(8, 1fr);
+  grid-template-rows: repeat(250, 1fr);
   grid-gap: 20px;
   padding-bottom: 30px;
   @media only screen and (min-width: 760px) {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(125, 1fr);
   }
   @media only screen and (min-width: 1230px) {
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(63, 1fr);
   }
 `;

@@ -1,16 +1,29 @@
 import React from "react";
 import styled from "styled-components";
+import { useGlobalContext } from "../context";
+import uuid from "react-uuid";
+
 function FlagCard() {
+  const { countries } = useGlobalContext();
   return (
-    <FlagContainer>
-      <Flag></Flag>
-      <Country>
-        <h3>United states of America</h3>
-        <p>Population</p>
-        <p>Region</p>
-        <p>Capital</p>
-      </Country>
-    </FlagContainer>
+    <>
+      {countries.map((country) => {
+        const { name, population, flag, region, capital } = country;
+        return (
+          <FlagContainer key={uuid()}>
+            <Flag>
+              <img src={flag} alt={name} />
+            </Flag>
+            <Country>
+              <h3>{name}</h3>
+              <p>Population: {population}</p>
+              <p>Region: {region}</p>
+              <p>Capital: {capital}</p>
+            </Country>
+          </FlagContainer>
+        );
+      })}
+    </>
   );
 }
 
@@ -40,9 +53,11 @@ const FlagContainer = styled.div`
 const Flag = styled.div`
   height: 50%;
   width: 100%;
-  background-image: url();
-  background-repeat: no-repeat;
-  background-size: contain;
+  > img {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
 `;
 
 const Country = styled.div`
