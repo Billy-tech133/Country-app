@@ -1,15 +1,33 @@
 import { Search } from "@material-ui/icons";
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
+import { useGlobalContext } from "../context";
 import FlagCard from "./FlagCard";
 
 function CountryList() {
+  const { setSearchTerm, countries } = useGlobalContext();
+
+  const searchValue = useRef("");
+  useEffect(() => {
+    searchValue.current.focus();
+  }, []);
+
+  const gridNum = countries.length;
+
+  const searchCountry = () => {
+    setSearchTerm(searchValue.current.value);
+  };
   return (
     <CountryContainer>
       <FormContainer>
         <InputContainer>
           <Search />
-          <input placeholder="search for a country" type="text" />
+          <input
+            ref={searchValue}
+            onChange={searchCountry}
+            placeholder="search for a country"
+            type="text"
+          />
         </InputContainer>
         <select name="countries" required>
           <option value="" disabled>
@@ -23,7 +41,9 @@ function CountryList() {
         </select>
       </FormContainer>
       <CardContainer>
-        <FlagCard />
+        {countries.map((country) => {
+          return <FlagCard key={country.id} {...country} />;
+        })}
       </CardContainer>
     </CountryContainer>
   );

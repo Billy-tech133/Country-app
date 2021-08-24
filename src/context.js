@@ -1,5 +1,7 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useCallback } from "react";
 import axios from "axios";
+import uuid from "react-uuid";
+
 const AppProvider = React.createContext();
 
 const url = "https://restcountries.eu/rest/v2/all";
@@ -7,6 +9,7 @@ const url = "https://restcountries.eu/rest/v2/all";
 const AppDataLayer = ({ children }) => {
   const [theme, setTheme] = useState("light");
   const [text, setText] = useState("dark mode");
+  const [searchTerm, setSearchTerm] = useState("");
   const [countries, setCountries] = useState([]);
 
   const lightMode = {
@@ -32,16 +35,44 @@ const AppDataLayer = ({ children }) => {
     dark: darkMode,
   };
 
-  const fetchData = async () => {
-    const response = await axios.get(url);
-    setCountries(response.data);
-    console.log(response.data);
-    return response;
-  };
+  const fetchData = useCallback(async () => {
+    try {
+      const response = await axios.get(`${url}`);
+      const { data } = response;
+      if (data) {
+        const newCountries = data
+          .filter((country) => {
+            if (searchTerm === "") {
+              return country;
+            } else if (
+              country.name.toLowerCase().includes(searchTerm.toLowerCase())
+            ) {
+              return country;
+            }
+          })
+          .map((country) => {
+            const { name, population, flag, region, capital } = country;
+            return {
+              id: uuid(),
+              name: name,
+              population: population,
+              flag: flag,
+              region: region,
+              capital: capital,
+            };
+          });
+        setCountries(newCountries);
+      } else {
+        setCountries([]);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }, [searchTerm]);
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [searchTerm]);
   const changeTheme = () => {
     if (theme === "light" && text === "dark mode") {
       setText("light mode");
@@ -59,6 +90,8 @@ const AppDataLayer = ({ children }) => {
         themes,
         text,
         countries,
+        searchTerm,
+        setSearchTerm,
         setCountries,
         setTheme,
         changeTheme,
