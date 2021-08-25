@@ -26,10 +26,10 @@ function NavBar() {
 export default NavBar;
 
 const NavContainer = styled.div`
-  /* position: fixed; */
-  height: 100%;
+  position: fixed;
+  height: 100px;
   width: 100vw;
-  box-shadow: 0 2px 10px 0px hsl(0, 0%, 52%);
+  box-shadow: 0 2px 10px 0px transparent;
   background-color: ${(props) => props.theme.navBackground};
   transition: background-color 500ms ease;
   @media only screen and (min-width: 750px) {

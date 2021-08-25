@@ -50,6 +50,7 @@ function CountryList() {
 export default CountryList;
 
 const CountryContainer = styled.div`
+  margin-top: 100px;
   height: 100%;
   max-width: 100%;
   width: 100vw;
