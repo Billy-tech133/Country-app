@@ -1,19 +1,29 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 function FlagCard({ id, name, population, flag, region, capital }) {
+  const FlagImage = styled.img.attrs({
+    src: `${flag}`,
+  })`
+    height: 100%;
+    width: 100%;
+  `;
+
   return (
-    <FlagContainer key={id}>
-      <Flag>
-        <img src={flag} alt={name} />
-      </Flag>
-      <Country>
-        <h3>{name}</h3>
-        <p>Population: {population}</p>
-        <p>Region: {region}</p>
-        <p>Capital: {capital}</p>
-      </Country>
-    </FlagContainer>
+    <Link to={`/country`}>
+      <FlagContainer key={id}>
+        <Flag>
+          <FlagImage></FlagImage>
+        </Flag>
+        <Country>
+          <h3>{name}</h3>
+          <p>Population: {population}</p>
+          <p>Region: {region}</p>
+          <p>Capital: {capital}</p>
+        </Country>
+      </FlagContainer>
+    </Link>
   );
 }
 
@@ -39,17 +49,10 @@ const FlagContainer = styled.div`
     transform: scale(1.04);
   }
 `;
-
 const Flag = styled.div`
   height: 50%;
   width: 100%;
-  > img {
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-  }
 `;
-
 const Country = styled.div`
   height: 50%;
   width: 100%;

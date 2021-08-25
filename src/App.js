@@ -4,20 +4,24 @@ import NavBar from "./components/NavBar";
 import { useGlobalContext } from "./context";
 import CountryList from "./components/CountryList";
 import SingleCountry from "./components/SingleCountry";
-import { BrowserRouter as Router, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
   const { theme, themes, setTheme } = useGlobalContext();
   return (
     <div className="app">
-      <Router>
-        <ThemeProvider theme={themes[theme]}>
+      <ThemeProvider theme={themes[theme]}>
+        <Router>
           <NavBar theme={theme} setTheme={setTheme} />
           <Switch>
-            <CountryList theme={theme} setTheme={setTheme} />
-            <SingleCountry />
+            <Route exact path="/">
+              <CountryList theme={theme} setTheme={setTheme} />
+            </Route>
+            <Route path="/country">
+              <SingleCountry theme={theme} setTheme={setTheme} />
+            </Route>
           </Switch>
-        </ThemeProvider>
-      </Router>
+        </Router>
+      </ThemeProvider>
     </div>
   );
 }

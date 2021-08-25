@@ -5,14 +5,12 @@ import { useGlobalContext } from "../context";
 import FlagCard from "./FlagCard";
 
 function CountryList() {
-  const { setSearchTerm, countries } = useGlobalContext();
+  const { setSearchTerm, countries, fetchData } = useGlobalContext();
 
   const searchValue = useRef("");
   useEffect(() => {
     searchValue.current.focus();
   }, []);
-
-  const gridNum = countries.length;
 
   const searchCountry = () => {
     setSearchTerm(searchValue.current.value);
@@ -30,7 +28,7 @@ function CountryList() {
           />
         </InputContainer>
         <select name="countries" required>
-          <option value="" disabled>
+          <option value="filter by region" disabled>
             filter by region
           </option>
           <option value="Africa">Africa</option>
