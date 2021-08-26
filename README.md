@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+# An advanced react project of a country app that fetches data from an REST API endpoint.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Resources:
 
-## Available Scripts
+- The application design was gotten from front end mentor;
+- material ui;
+- netlify was used for hosting.
+- https://restcountries.eu
+- stackoverflow
+- figma
 
-In the project directory, you can run:
+# Technologies Used:
 
-### `yarn start`
+- React(as the main javascript libary) with react context api, react-router-dom, and a great deal of react hooks.
+- styled-components(for styling),
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Some Best practices:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Though the site is not as at best, here are some measures taken to make sure the site is as resposive and dynamic as posible.
 
-### `yarn test`
+- Firstly, the site was developed with react which is a very powerfull javascript libary used for building user interfaces.
+- React context api was used as the data layer, to prevent prop-drilling and state management.
+- React hooks use for state management examples used in this case are useEffect, useState, useRef, useCallBack, and useParams from the react router dom api.
+- axios was used to get data from https://restcountries.eu via api,
+- material ui icons was used to get icons used for this particular project.
+- styled components was used to styled this project. flex box and grid where used to make the project as responsive and dynamic as possible.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Outro
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The website is a demonstration of my front end skills and functionality was not 100% implemented, I might be returning anytime to complete the project.

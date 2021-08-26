@@ -110,11 +110,13 @@ function SingleCountry() {
                 <h4>
                   top level domain: <span>{topLevelDomain}</span>
                 </h4>
+
                 <h4>
-                  currencies: <span>{currencies.name}</span>
+                  currencies: <span>{currencies[0].name}</span>
                 </h4>
+
                 <h4>
-                  languages: <span>{languages.name}</span>
+                  languages: <span>{languages[0].name}</span>
                 </h4>
               </SingleDetails>
             </SingleAll>
@@ -189,13 +191,13 @@ const SingleDesc = styled.div`
 `;
 
 const SingleDetails = styled.div`
-  margin: 40px;
+  margin: 40px 0;
   > h4 {
     margin-top: 10px;
     font-weight: 300;
   }
   @media only screen and (min-width: 900px) {
-    margin-top: 40px;
+    margin-top: 40px 0;
   }
 `;
 
@@ -225,6 +227,8 @@ const SingleAll = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
+    overflow: hidden;
     margin-bottom: 40px;
   }
 `;

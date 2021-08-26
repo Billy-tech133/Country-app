@@ -5,6 +5,7 @@ import { useGlobalContext } from "./context";
 import CountryList from "./components/CountryList";
 import SingleCountry from "./components/SingleCountry";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Error from "./components/Error";
 function App() {
   const { theme, themes, setTheme } = useGlobalContext();
   return (
@@ -18,6 +19,9 @@ function App() {
             </Route>
             <Route path="/country/:name">
               <SingleCountry theme={theme} setTheme={setTheme} />
+            </Route>
+            <Route path="*">
+              <Error theme={theme} setTheme={setTheme} />
             </Route>
           </Switch>
         </Router>
