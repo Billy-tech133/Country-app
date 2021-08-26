@@ -40,6 +40,7 @@ const AppDataLayer = ({ children }) => {
     try {
       const response = await axios.get(`${url}`);
       const { data } = response;
+      console.log(data);
       if (data) {
         const newCountries = data
           .filter((country) => {
@@ -52,7 +53,8 @@ const AppDataLayer = ({ children }) => {
             }
           })
           .map((country) => {
-            const { name, population, flag, region, capital } = country;
+            const { name, population, flag, region, capital, alpha3Code } =
+              country;
             return {
               id: uuid(),
               name: name,
@@ -60,6 +62,7 @@ const AppDataLayer = ({ children }) => {
               flag: flag,
               region: region,
               capital: capital,
+              alpha3Code: alpha3Code,
             };
           });
         setCountries(newCountries);

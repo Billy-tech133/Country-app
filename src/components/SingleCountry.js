@@ -5,24 +5,14 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-const url_country =
-  "https://restcountries.eu/rest/v2/name/United Arab Emirates";
-
-function SingleCountry({ flag }) {
+function SingleCountry() {
   const [country, setCountry] = useState(null);
-
   const { name } = useParams();
 
-  const Image = styled.img.attrs({
-    src: `${flag}`,
-  })`
-    width: 100%;
-    height: 100%;
-    border: none;
-  `;
-
   const fetchCountry = async () => {
-    const response = await axios.get(url_country);
+    const response = await axios.get(
+      `https://restcountries.eu/rest/v2/name/${name}`
+    );
     console.log(response.data);
     if (response.data) {
       const {
@@ -77,6 +67,13 @@ function SingleCountry({ flag }) {
       languages,
       borders,
     } = country;
+    const Image = styled.img.attrs({
+      src: `${flag}`,
+    })`
+      width: 100%;
+      height: 100%;
+      border: none;
+    `;
     return (
       <SingleContainer>
         <Link to="/">
@@ -123,22 +120,18 @@ function SingleCountry({ flag }) {
             </SingleAll>
             <SingleLocation>
               <h2>border countries: </h2>
-              {borders.map((border, index) => {
-                return (
-                  <ButtonWrapper>
-                    <Link key={index}>
-                      <BorderButton>{border}</BorderButton>
+              <ButtonWrapper>
+                {borders.map((border, index) => {
+                  return (
+                    <Link>
+                      <BorderButton className="left-margin" key={index}>
+                        {border}
+                      </BorderButton>
+                      ;
                     </Link>
-                  </ButtonWrapper>
-                );
-              })}
-
-              {/* <Link>
-                  <BorderButton className="left-margin">Belgium</BorderButton>
-                </Link>
-                <Link>
-                  <BorderButton className="left-margin">Germany</BorderButton>
-                </Link> */}
+                  );
+                })}
+              </ButtonWrapper>
             </SingleLocation>
           </SingleImageInner>
         </SingleImageAll>
@@ -152,7 +145,10 @@ export default SingleCountry;
 const SingleContainer = styled.div`
   margin-top: 100px;
   padding-bottom: 60px;
-
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  flex-direction: column;
   height: 100%;
   width: 100vw;
   color: ${(props) => props.theme.textColor};
@@ -193,7 +189,7 @@ const SingleDesc = styled.div`
 `;
 
 const SingleDetails = styled.div`
-  margin: 40px 0;
+  margin: 40px;
   > h4 {
     margin-top: 10px;
     font-weight: 300;
@@ -220,6 +216,8 @@ const BorderButton = styled.div`
 
 const ButtonWrapper = styled.div`
   display: flex;
+  align-items: center;
+  overflow-x: hidden;
 `;
 
 const SingleAll = styled.div`

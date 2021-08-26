@@ -16,7 +16,7 @@ function App() {
             <Route exact path="/">
               <CountryList theme={theme} setTheme={setTheme} />
             </Route>
-            <Route path="/country">
+            <Route path="/country/:name">
               <SingleCountry theme={theme} setTheme={setTheme} />
             </Route>
           </Switch>

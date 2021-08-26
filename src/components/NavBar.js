@@ -32,6 +32,7 @@ const NavContainer = styled.div`
   box-shadow: 0 2px 10px 0px transparent;
   background-color: ${(props) => props.theme.navBackground};
   transition: background-color 500ms ease;
+  z-index: 1;
   @media only screen and (min-width: 750px) {
     width: 100vw;
     padding: 0 20px;

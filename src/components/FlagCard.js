@@ -11,7 +11,7 @@ function FlagCard({ id, name, population, flag, region, capital }) {
   `;
 
   return (
-    <Link to={`/country`}>
+    <Link to={`/country/${name}`}>
       <FlagContainer key={id}>
         <Flag>
           <FlagImage></FlagImage>
