@@ -5,7 +5,7 @@ import { useGlobalContext } from "../context";
 import FlagCard from "./FlagCard";
 
 function CountryList() {
-  const { setSearchTerm, countries, fetchData } = useGlobalContext();
+  const { setSearchTerm, countries } = useGlobalContext();
 
   const searchValue = useRef("");
   useEffect(() => {

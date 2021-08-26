@@ -11,6 +11,7 @@ const AppDataLayer = ({ children }) => {
   const [text, setText] = useState("dark mode");
   const [searchTerm, setSearchTerm] = useState("");
   const [countries, setCountries] = useState([]);
+  const [country, setCountry] = useState(null);
 
   const lightMode = {
     appBackground: "hsl(0, 0%, 98%)",
@@ -91,6 +92,7 @@ const AppDataLayer = ({ children }) => {
         text,
         countries,
         searchTerm,
+        country,
         setSearchTerm,
         setCountries,
         setTheme,
