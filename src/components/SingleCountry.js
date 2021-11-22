@@ -11,7 +11,7 @@ function SingleCountry() {
 
   const fetchCountry = async () => {
     const response = await axios.get(
-      `https://restcountries.eu/rest/v2/name/${name}`
+      `https://restcountries.com/v2/name/${name}`
     );
     console.log(response.data);
     if (response.data) {
@@ -76,7 +76,7 @@ function SingleCountry() {
     `;
     return (
       <SingleContainer>
-        <Link to="/">
+        <Link to='/'>
           <BackButton>
             <ArrowBack />
             <h4>Back</h4>
@@ -121,12 +121,12 @@ function SingleCountry() {
               </SingleDetails>
             </SingleAll>
             <SingleLocation>
-              <h2>border countries: </h2>
+              {borders ? <h2>border countries: </h2> : null}
               <ButtonWrapper>
-                {borders.map((border, index) => {
+                {borders?.map((border, index) => {
                   return (
                     <Link>
-                      <BorderButton className="left-margin" key={index}>
+                      <BorderButton className='left-margin' key={index}>
                         {border}
                       </BorderButton>
                       ;

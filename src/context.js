@@ -4,8 +4,7 @@ import uuid from "react-uuid";
 
 const AppProvider = React.createContext();
 
-const url = "https://restcountries.eu/rest/v2/all";
-
+const url = "https://restcountries.com/v2/all";
 const AppDataLayer = ({ children }) => {
   const [theme, setTheme] = useState("light");
   const [text, setText] = useState("dark mode");
@@ -39,7 +38,7 @@ const AppDataLayer = ({ children }) => {
     try {
       const response = await axios.get(`${url}`);
       const { data } = response;
-      console.log(data);
+
       if (data) {
         const newCountries = data
           .filter((country) => {
@@ -98,8 +97,7 @@ const AppDataLayer = ({ children }) => {
         setCountries,
         setTheme,
         changeTheme,
-      }}
-    >
+      }}>
       {children}
     </AppProvider.Provider>
   );
